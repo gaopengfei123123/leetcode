@@ -17,7 +17,12 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 
 	for input, expect := range example {
 		output := lengthOfLongestSubstring(input)
-		t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+
+		if expect != output {
+			t.Errorf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		}
 	}
 }
 
@@ -35,25 +40,29 @@ func TestLengthOfLongestSubstringPro(t *testing.T) {
 
 	for input, expect := range example {
 		output := lengthOfLongestSubstringPro(input)
-		t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		if expect != output {
+			t.Errorf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		}
 	}
 }
 
-func TestFindMedianSortedArrays(t *testing.T) {
-	example := []struct {
-		first  []int
-		second []int
-		expect float64
-	}{
-		{first: []int{1, 3}, second: []int{4, 5}, expect: 3.5},
-		// {first: []int{1, 2}, second: []int{3, 4}, expect: 2.5},
-	}
+// func TestFindMedianSortedArrays(t *testing.T) {
+// 	example := []struct {
+// 		first  []int
+// 		second []int
+// 		expect float64
+// 	}{
+// 		{first: []int{1, 3}, second: []int{4, 5}, expect: 3.5},
+// 		// {first: []int{1, 2}, second: []int{3, 4}, expect: 2.5},
+// 	}
 
-	for i, demo := range example {
-		output := findMedianSortedArrays(demo.first, demo.second)
-		t.Logf("\ndemo%d: %v \nexpect: %v, result: %v\n==================\n", i+1, demo, demo.expect, output)
-	}
-}
+// 	for i, demo := range example {
+// 		output := findMedianSortedArrays(demo.first, demo.second)
+// 		t.Logf("\ndemo%d: %v \nexpect: %v, result: %v\n==================\n", i+1, demo, demo.expect, output)
+// 	}
+// }
 
 func TestLongestPalindrome(t *testing.T) {
 	example := map[string]string{
@@ -81,7 +90,12 @@ func TestReverse(t *testing.T) {
 
 	for input, expect := range example {
 		output := reverse(input)
-		t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		// t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		if expect != output {
+			t.Errorf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		}
 	}
 }
 
@@ -101,7 +115,12 @@ func TestMyAtoi(t *testing.T) {
 
 	for input, expect := range example {
 		output := myAtoi(input)
-		t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		// t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		if expect != output {
+			t.Errorf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		}
 	}
 }
 
@@ -114,7 +133,11 @@ func TestIsPalindrome(t *testing.T) {
 
 	for input, expect := range example {
 		output := isPalindrome(input)
-		t.Logf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		if expect != output {
+			t.Errorf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		}
 	}
 }
 
@@ -128,7 +151,12 @@ func TestMaxArea(t *testing.T) {
 
 	for expect, input := range example {
 		output := maxArea(input)
-		t.Logf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		if expect != output {
+			t.Errorf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %v, output:%v \n", input, expect, output)
+		}
+
 	}
 }
 
@@ -144,7 +172,12 @@ func TestIntToRoman(t *testing.T) {
 
 	for expect, input := range example {
 		output := intToRoman(input)
-		t.Logf("input: %v, expect: %s, output:%s \n", input, expect, output)
+
+		if expect != output {
+			t.Errorf("input: %v, expect: %s, output:%s \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %s, output:%s \n", input, expect, output)
+		}
 	}
 }
 
@@ -161,21 +194,38 @@ func TestRomanToInt(t *testing.T) {
 
 	for input, expect := range example {
 		output := romanToInt(input)
-		t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+
+		if expect != output {
+			t.Errorf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		} else {
+			t.Logf("input: %v, expect: %d, output:%d \n", input, expect, output)
+		}
 	}
 }
 
+// if expect != output {
+// 	} else {
+// 	}
+
 func TestLongestCommonPrefix(t *testing.T) {
-	example := map[string][]string{
-		"fl":   []string{"flower", "flow", "flight"},
-		"":     []string{"dog", "racecar", "car"},
-		"null": []string{},
-		"a":    []string{"aa", "a"},
-		"re":   []string{"react", "res", "respect"},
+	example := []struct {
+		Input  []string
+		Expect string
+	}{
+		{Input: []string{"flower", "flow", "flight"}, Expect: "fl"},
+		{Input: []string{"dog", "racecar", "car"}, Expect: ""},
+		{Input: []string{}, Expect: ""},
+		{Input: []string{"aa", "a"}, Expect: "a"},
+		{Input: []string{"react", "res", "respect"}, Expect: "re"},
 	}
 
-	for expect, input := range example {
-		output := longestCommonPrefix(input)
-		t.Logf("input: %v, expect: %s, output:%s \n", input, expect, output)
+	for _, demo := range example {
+		output := longestCommonPrefix(demo.Input)
+		if demo.Expect != output {
+			t.Errorf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
+		} else {
+			t.Logf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
+		}
+
 	}
 }
