@@ -229,3 +229,73 @@ func TestLongestCommonPrefix(t *testing.T) {
 
 	}
 }
+
+func TestThreeSum(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Expect [][]int
+	}{
+		// {
+		// 	Input: []int{-1, 0, 1, 2, -1, -4},
+		// 	Expect: [][]int{
+		// 		[]int{-1, 0, 1},
+		// 		[]int{-1, -1, 2},
+		// 	},
+		// },
+		// {
+		// 	Input:  []int{1, 2, -2, -1},
+		// 	Expect: [][]int{},
+		// },
+		// {
+		// 	Input: []int{0, 0, 0},
+		// 	Expect: [][]int{
+		// 		[]int{0, 0, 0},
+		// 	},
+		// },
+		// {
+		// 	Input: []int{0, 0, 0, 0},
+		// 	Expect: [][]int{
+		// 		[]int{0, 0, 0},
+		// 	},
+		// },
+		// {
+		// 	Input: []int{-1, 0, 1, 2, -1, -4},
+		// 	Expect: [][]int{
+		// 		[]int{-1, -1, 2},
+		// 		[]int{-1, 0, 1},
+		// 	},
+		// },
+		{
+			Input: []int{2, -2, 9, -9, 7, -7, 2, -7, 0, 3, 8, -9, -3, -9, -3, -10, -5, -4, -3, -9, -9, -4, 0, 3, -10, -7},
+			Expect: [][]int{
+				[]int{-10, 2, 8},
+				[]int{-10, 3, 7},
+				[]int{-9, 0, 9},
+				[]int{-9, 2, 7},
+				[]int{-7, -2, 9},
+				[]int{-7, 0, 7},
+				[]int{-5, -4, 9},
+				[]int{-5, -3, 8},
+				[]int{-5, -2, 7},
+				[]int{-5, 2, 3},
+				[]int{-4, -4, 8},
+				[]int{-4, -3, 7},
+				[]int{-4, 2, 2},
+				[]int{-3, 0, 3},
+				[]int{-2, 0, 2},
+			},
+		},
+	}
+
+	for _, demo := range example {
+		output := threeSum(demo.Input)
+
+		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
+		// if demo.Expect != output {
+		// 	t.Errorf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
+		// } else {
+		// 	t.Logf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
+		// }
+
+	}
+}
