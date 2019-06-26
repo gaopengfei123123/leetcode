@@ -13,7 +13,6 @@ func threeSumClosest(nums []int, target int) int {
 	ln := len(nums)
 	sort.Ints(nums)
 
-	// taget在中间的情况
 	result = nums[0] + nums[1] + nums[2]
 	for i := 0; i < ln-2; i++ {
 		if i > 0 && nums[i] == nums[i-1] {
