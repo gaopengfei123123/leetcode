@@ -331,3 +331,23 @@ func TestThreeSumClosest(t *testing.T) {
 		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Closest, output)
 	}
 }
+
+func TestLetterCombinations(t *testing.T) {
+	example := []struct {
+		Input  string
+		Expect []string
+	}{
+		{
+			Input:  "23",
+			Expect: []string{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"},
+		},
+		{
+			Input:  "",
+			Expect: []string{},
+		},
+	}
+	for _, demo := range example {
+		output := letterCombinations(demo.Input)
+		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
+	}
+}
