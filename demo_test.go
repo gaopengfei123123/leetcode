@@ -290,11 +290,6 @@ func TestThreeSum(t *testing.T) {
 	for _, demo := range example {
 		output := threeSum(demo.Input)
 		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
-		// if demo.Expect != output {
-		// 	t.Errorf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
-		// } else {
-		// 	t.Logf("input: %v, expect: %s, output:%s \n", demo.Input, demo.Expect, output)
-		// }
 	}
 }
 
@@ -348,6 +343,44 @@ func TestLetterCombinations(t *testing.T) {
 	}
 	for _, demo := range example {
 		output := letterCombinations(demo.Input)
+		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
+	}
+}
+
+func TestFourSum(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Target int
+		Expect [][]int
+	}{
+		{
+			Input:  []int{1, 0, -1, 0, -2, 2},
+			Target: 0,
+			Expect: [][]int{
+				[]int{-1, 0, 0, 1},
+				[]int{-2, -1, 1, 2},
+				[]int{-2, 0, 0, 2},
+			},
+		},
+
+		{
+			Input:  []int{-3, -2, -1, 0, 0, 1, 2, 3},
+			Target: 0,
+			Expect: [][]int{
+				[]int{-3, -2, 2, 3},
+				[]int{-3, -1, 1, 3},
+				[]int{-3, 0, 0, 3},
+				[]int{-3, 0, 1, 2},
+				[]int{-2, -1, 0, 3},
+				[]int{-2, -1, 1, 2},
+				[]int{-2, 0, 0, 2},
+				[]int{-1, 0, 0, 1},
+			},
+		},
+	}
+
+	for _, demo := range example {
+		output := fourSum(demo.Input, demo.Target)
 		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
 	}
 }
