@@ -384,3 +384,23 @@ func TestFourSum(t *testing.T) {
 		t.Logf("input: %v \n expect: %v \n output:%v \n", demo.Input, demo.Expect, output)
 	}
 }
+
+func TestRemoveNthFromEnd(t *testing.T) {
+	example := []struct {
+		Input  *ListNode
+		N      int
+		Expect *ListNode
+	}{
+		{
+			Input:  array2SingleList([]int{1, 2, 3, 4, 5}),
+			N:      2,
+			Expect: array2SingleList([]int{1, 2, 3, 5}),
+		},
+	}
+
+	for _, demo := range example {
+		output := removeNthFromEnd(demo.Input, demo.N)
+		echoList(output)
+		echoList(demo.Expect)
+	}
+}
