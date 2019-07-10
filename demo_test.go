@@ -455,3 +455,24 @@ func TestIsValid(t *testing.T) {
 		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.Input, demo.Expect, output)
 	}
 }
+
+func TestMergeTwoLists(t *testing.T) {
+	example := []struct {
+		Node1 *ListNode
+		Node2 *ListNode
+
+		Expect *ListNode
+	}{
+		{
+			Node1:  array2SingleList([]int{1, 2, 4}),
+			Node2:  array2SingleList([]int{1, 3, 4}),
+			Expect: array2SingleList([]int{1, 1, 2, 3, 4, 4}),
+		},
+	}
+
+	for _, demo := range example {
+		output := mergeTwoLists(demo.Node1, demo.Node2)
+		echoList(output)
+		// echoList(demo.Expect)
+	}
+}
