@@ -404,3 +404,54 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		echoList(demo.Expect)
 	}
 }
+
+func TestIsValid(t *testing.T) {
+	example := []struct {
+		Input string
+
+		Expect bool
+	}{
+		{
+			Input:  "]",
+			Expect: false,
+		},
+		{
+			Input:  "()",
+			Expect: true,
+		},
+		{
+			Input:  "({[",
+			Expect: false,
+		},
+		{
+			Input:  "",
+			Expect: true,
+		},
+
+		{
+			Input:  "()[]{}",
+			Expect: true,
+		},
+		{
+			Input:  "(]",
+			Expect: false,
+		},
+		{
+			Input:  "{[]}",
+			Expect: true,
+		},
+		{
+			Input:  "([)]",
+			Expect: false,
+		},
+		{
+			Input:  "(([]){})",
+			Expect: true,
+		},
+	}
+
+	for _, demo := range example {
+		output := isValid(demo.Input)
+		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.Input, demo.Expect, output)
+	}
+}
