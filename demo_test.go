@@ -476,3 +476,39 @@ func TestMergeTwoLists(t *testing.T) {
 		// echoList(demo.Expect)
 	}
 }
+
+func TestGenerateParenthesis(t *testing.T) {
+	example := []struct {
+		N      int
+		Expect []string
+	}{
+		// {
+		// 	N: 1,
+		// 	Expect: []string{
+		// 		"()", // 1
+		// 	},
+		// },
+		// {
+		// 	N: 2,
+		// 	Expect: []string{
+		// 		"()()", // 1+1
+		// 		"(())", // 2
+		// 	},
+		// },
+		{
+			N: 3,
+			Expect: []string{
+				"((()))", // 3
+				"(()())", // 1.5 + 1.5
+				"(())()", // 2+1
+				"()(())", // 1+2
+				"()()()", // 1+1+1
+			},
+		},
+	}
+
+	for _, demo := range example {
+		output := generateParenthesis(demo.N)
+		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.N, demo.Expect, output)
+	}
+}
