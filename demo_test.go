@@ -482,27 +482,14 @@ func TestGenerateParenthesis(t *testing.T) {
 		N      int
 		Expect []string
 	}{
-		// {
-		// 	N: 1,
-		// 	Expect: []string{
-		// 		"()", // 1
-		// 	},
-		// },
-		// {
-		// 	N: 2,
-		// 	Expect: []string{
-		// 		"()()", // 1+1
-		// 		"(())", // 2
-		// 	},
-		// },
 		{
 			N: 3,
 			Expect: []string{
-				"((()))", // 3
-				"(()())", // 1.5 + 1.5
-				"(())()", // 2+1
-				"()(())", // 1+2
-				"()()()", // 1+1+1
+				"((()))",
+				"(()())",
+				"(())()",
+				"()(())",
+				"()()()",
 			},
 		},
 	}
@@ -510,5 +497,47 @@ func TestGenerateParenthesis(t *testing.T) {
 	for _, demo := range example {
 		output := generateParenthesis(demo.N)
 		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.N, demo.Expect, output)
+	}
+}
+
+func TestSwapPairs(t *testing.T) {
+	example := []struct {
+		Input  *ListNode
+		N      int
+		Expect *ListNode
+	}{
+		{
+			Input:  array2SingleList([]int{1, 2, 3, 4}),
+			N:      2,
+			Expect: array2SingleList([]int{2, 1, 4, 3}),
+		},
+	}
+
+	for _, demo := range example {
+		output := swapPairs(demo.Input)
+		echoList(output)
+		echoList(demo.Expect)
+	}
+}
+
+func TestRemoveDuplicatesIsValid(t *testing.T) {
+	example := []struct {
+		Input []int
+
+		Expect int
+	}{
+		{
+			Input:  []int{1, 1, 2},
+			Expect: 2,
+		},
+		{
+			Input:  []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
+			Expect: 5,
+		},
+	}
+
+	for _, demo := range example {
+		output := removeDuplicates(demo.Input)
+		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.Input, demo.Expect, output)
 	}
 }
