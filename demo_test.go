@@ -565,3 +565,42 @@ func TestRemoveElement(t *testing.T) {
 		t.Logf("\n  input: %v val: %d \n expect: %v \n output: %v \n", demo.Input, demo.Val, demo.Expect, output)
 	}
 }
+
+func TestStrStr(t *testing.T) {
+	example := []struct {
+		Input  string
+		Val    string
+		Expect int
+	}{
+		{
+			Input:  "hello",
+			Val:    "ll",
+			Expect: 2,
+		},
+		{
+			Input:  "aaaaa",
+			Val:    "bba",
+			Expect: -1,
+		},
+		{
+			Input:  "",
+			Val:    "",
+			Expect: 0,
+		},
+		{
+			Input:  "a",
+			Val:    "a",
+			Expect: 0,
+		},
+		{
+			Input:  "mississippi",
+			Val:    "pi",
+			Expect: 9,
+		},
+	}
+
+	for _, demo := range example {
+		output := strStr(demo.Input, demo.Val)
+		t.Logf("\n  input: %v val: %v \n expect: %v \n output: %v \n", demo.Input, demo.Val, demo.Expect, output)
+	}
+}
