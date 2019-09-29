@@ -541,3 +541,27 @@ func TestRemoveDuplicatesIsValid(t *testing.T) {
 		t.Logf("\n  input: %v \n expect: %v \n output: %v \n", demo.Input, demo.Expect, output)
 	}
 }
+
+func TestRemoveElement(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Val    int
+		Expect int
+	}{
+		{
+			Input:  []int{3, 2, 2, 3},
+			Val:    3,
+			Expect: 2,
+		},
+		{
+			Input:  []int{0, 1, 2, 2, 3, 0, 4, 2},
+			Val:    2,
+			Expect: 5,
+		},
+	}
+
+	for _, demo := range example {
+		output := removeElement(demo.Input, demo.Val)
+		t.Logf("\n  input: %v val: %d \n expect: %v \n output: %v \n", demo.Input, demo.Val, demo.Expect, output)
+	}
+}
