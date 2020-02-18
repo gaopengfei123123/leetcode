@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"math"
 	"fmt"
+	"math"
 )
 
 /**
@@ -72,20 +72,20 @@ func divide(dividend int, divisor int) int {
 		dividend = -1
 		sign = -1
 	} else if divisor < 0 {
-		divisor = -1 
+		divisor = -1
 		sign = -1
 	}
 
 	for dividend >= divisor {
 		multiple := divisor
-		fmt.Printf(">>>>>>>start loop, dividend: %d, divisor: %d <<<<<<< \n\n", dividend,divisor)
-		for i:=0; dividend >= multiple;i++{
+		fmt.Printf(">>>>>>>start loop, dividend: %d, divisor: %d <<<<<<< \n\n", dividend, divisor)
+		for i := 0; dividend >= multiple; i++ {
 			fmt.Printf("i: %d \n", i)
 			dividend -= multiple
-			fmt.Printf("dividend: %d (%d-%dx%d^%d) \n", dividend, dividend + multiple, divisor,2, i)
+			fmt.Printf("dividend: %d (%d-%dx%d^%d) \n", dividend, dividend+multiple, divisor, 2, i)
 			quotient += 1 << uint(i)
-			fmt.Printf("quotient: %d (%d+%d) \n\n", quotient, quotient - 1 << uint(i), 1 << uint(i))
-			multiple <<=1
+			fmt.Printf("quotient: %d (%d+%d) \n\n", quotient, quotient-1<<uint(i), 1<<uint(i))
+			multiple <<= 1
 		}
 		fmt.Printf(">>>>>>> next loop <<<<<<< \n\n\n")
 	}
@@ -105,7 +105,7 @@ func divide(dividend int, divisor int) int {
 // 		return math.MaxInt32
 // 	}
 
-// 	// capture the sign
+// 	// 确定正负号
 // 	if divisor < 0 && dividend < 0 {
 // 		divisor = -divisor
 // 		dividend = -dividend
@@ -120,7 +120,7 @@ func divide(dividend int, divisor int) int {
 
 // 	}
 
-// 	// divide some part to approach the answer
+// 	// 逐次减去除数
 // 	for dividend >= divisor {
 // 		multiple := divisor
 // 		for i := 0; dividend >= multiple; i++ {
