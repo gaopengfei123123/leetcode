@@ -604,3 +604,61 @@ func TestStrStr(t *testing.T) {
 		t.Logf("\n  input: %v val: %v \n expect: %v \n output: %v \n", demo.Input, demo.Val, demo.Expect, output)
 	}
 }
+
+func TestDivide(t *testing.T) {
+	example := []struct {
+		Dividend int
+		Divisor  int
+		Expect   int
+	}{
+		{
+			Dividend: 100,
+			Divisor:  3,
+			Expect:   3,
+		},
+		// {
+		// 	Dividend: 10,
+		// 	Divisor:  2,
+		// 	Expect:   5,
+		// },
+		// {
+		// 	Dividend: -5,
+		// 	Divisor:  2,
+		// 	Expect:   2,
+		// },
+	}
+
+	for _, demo := range example {
+		output := divide(demo.Dividend, demo.Divisor)
+		t.Logf("\n  dividend: %v divisor: %v \n expect: %v \n output: %v \n", demo.Dividend, demo.Divisor, demo.Expect, output)
+	}
+}
+
+func TestReverseString(t *testing.T) {
+	example := []struct {
+		Input  []byte
+		Output []byte
+		Expect []byte
+	}{
+		{
+			Input:  []byte(`hello`),
+			Expect: []byte(`olleh`),
+		},
+		{
+			Input:  []byte(`GPF`),
+			Expect: []byte(`FPG`),
+		},
+		{
+			Input:  []byte(``),
+			Expect: []byte(``),
+		},
+	}
+
+	for _, demo := range example {
+		t.Logf("input: %s\n", demo.Input)
+		reverseString(demo.Input)
+		t.Logf("output: %s\n", demo.Input)
+		t.Logf("expect: %s\n", demo.Expect)
+
+	}
+}
