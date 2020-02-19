@@ -693,3 +693,46 @@ func TestFindSubstring(t *testing.T) {
 		t.Logf("expect: %#+v\n", demo.Expect)
 	}
 }
+
+func TestNextPermutation(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Expect []int
+	}{
+		// {
+		// 	Input:  []int{1, 2, 3},
+		// 	Expect: []int{1, 3, 2},
+		// },
+		// {
+		// 	Input:  []int{1, 1, 5},
+		// 	Expect: []int{1, 5, 1},
+		// },
+		// {
+		// 	Input:  []int{3, 2, 1},
+		// 	Expect: []int{1, 2, 3},
+		// },
+		// {
+		// 	Input:  []int{1, 2, 3, 4, 5, 6},
+		// 	Expect: []int{1, 2, 3, 4, 6, 5},
+		// },
+		// {
+		// 	Input:  []int{1, 2, 3, 4, 6, 5},
+		// 	Expect: []int{1, 2, 3, 5, 4, 6},
+		// },
+		// {
+		// 	Input:  []int{1, 2, 4, 6, 5, 3},
+		// 	Expect: []int{1, 2, 5, 3, 4, 6},
+		// },
+		{
+			Input:  []int{1, 5, 1},
+			Expect: []int{5, 1, 1},
+		},
+	}
+
+	for _, demo := range example {
+		t.Logf("input: %#+v\n", demo.Input)
+		nextPermutation(demo.Input)
+		t.Logf("output: %#+v\n", demo.Input)
+		t.Logf("expect: %#+v\n\n", demo.Expect)
+	}
+}
