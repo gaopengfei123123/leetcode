@@ -662,3 +662,34 @@ func TestReverseString(t *testing.T) {
 
 	}
 }
+
+func TestFindSubstring(t *testing.T) {
+	example := []struct {
+		S      string
+		Words  []string
+		Output []int
+		Expect []int
+	}{
+		{
+			S:      "barfoothefoobarman",
+			Words:  []string{"foo", "bar"},
+			Expect: []int{0, 9},
+		},
+		// {
+		// 	S:      "wordgoodgoodgoodbestword",
+		// 	Words:  []string{"word", "good", "best", "word"},
+		// 	Expect: []int{},
+		// },
+		// {
+		// 	S:      "",
+		// 	Words:  []string{},
+		// 	Expect: []int{},
+		// },
+	}
+	for _, demo := range example {
+		t.Logf("input: %s, %#+v\n", demo.S, demo.Words)
+		res := findSubstring(demo.S, demo.Words)
+		t.Logf("output: %#+v\n", res)
+		t.Logf("expect: %#+v\n", demo.Expect)
+	}
+}
