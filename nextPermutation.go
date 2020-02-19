@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 /**
 这一道题的目的是给定一组数, 换算出一个比当前数字排列 "稍微大一点" 的数字排列
 那么 123 "稍微大一点"的就是 132, 而不是 312, 213 这类的
@@ -30,8 +28,6 @@ func nextPermutation(nums []int) {
 		t--
 		i--
 	}
-
-	fmt.Printf("t: %d \n", t)
 
 	// k := nums[t]
 	// 2. 找比k刚好大一点的数
