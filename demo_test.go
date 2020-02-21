@@ -742,30 +742,30 @@ func TestLongestValidParentheses(t *testing.T) {
 		Input  string
 		Expect int
 	}{
-		// {
-		// 	Input:  "(()",
-		// 	Expect: 2,
-		// },
-		// {
-		// 	Input:  ")()())",
-		// 	Expect: 4,
-		// },
-		// {
-		// 	Input:  "())((())",
-		// 	Expect: 4,
-		// },
+		{
+			Input:  "(()",
+			Expect: 2,
+		},
+		{
+			Input:  ")()())",
+			Expect: 4,
+		},
+		{
+			Input:  "())((())",
+			Expect: 4,
+		},
 		{
 			Input:  "()())((()()()()))(()))",
 			Expect: 16,
 		},
-		// {
-		// 	Input:  "()(())",
-		// 	Expect: 6,
-		// },
-		// {
-		// 	Input:  "(()())",
-		// 	Expect: 6,
-		// },
+		{
+			Input:  "()(())",
+			Expect: 6,
+		},
+		{
+			Input:  "(()())",
+			Expect: 6,
+		},
 	}
 
 	for _, demo := range example {
@@ -775,4 +775,29 @@ func TestLongestValidParentheses(t *testing.T) {
 		t.Logf("expect: %#+v\n\n", demo.Expect)
 	}
 
+}
+
+func TestSearch(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Target int
+		Expect int
+	}{
+		{
+			Input:  []int{4, 5, 6, 7, 0, 1, 2},
+			Target: 0,
+			Expect: 4,
+		},
+		{
+			Input:  []int{4, 5, 6, 7, 0, 1, 2},
+			Target: 3,
+			Expect: -1,
+		},
+	}
+	for _, demo := range example {
+		t.Logf("input: %#+v\n", demo.Input)
+		res := search(demo.Input, demo.Target)
+		t.Logf("output: %#+v\n", res)
+		t.Logf("expect: %#+v\n\n", demo.Expect)
+	}
 }
