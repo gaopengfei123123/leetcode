@@ -837,3 +837,44 @@ func TestSearchRange(t *testing.T) {
 		t.Logf("expect: %#+v\n\n", demo.Expect)
 	}
 }
+
+func TestSearchInsert(t *testing.T) {
+	example := []struct {
+		Input  []int
+		Target int
+		Expect int
+	}{
+		{
+			Input:  []int{1, 3, 5, 6},
+			Target: 5,
+			Expect: 2,
+		},
+		{
+			Input:  []int{1, 3, 5, 6},
+			Target: 2,
+			Expect: 1,
+		},
+		{
+			Input:  []int{1, 3, 5, 6},
+			Target: 7,
+			Expect: 4,
+		},
+		{
+			Input:  []int{1, 3, 5, 6},
+			Target: 0,
+			Expect: 0,
+		},
+		{
+			Input:  []int{1, 3},
+			Target: 3,
+			Expect: 1,
+		},
+	}
+
+	for _, demo := range example {
+		t.Logf("input: %#+v target: %#+v\n", demo.Input, demo.Target)
+		res := searchInsert(demo.Input, demo.Target)
+		t.Logf("output: %#+v\n", res)
+		t.Logf("expect: %#+v\n\n", demo.Expect)
+	}
+}
