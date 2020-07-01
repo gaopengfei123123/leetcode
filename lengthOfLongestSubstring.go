@@ -1,8 +1,6 @@
 package leetcode
 
-import (
 // "fmt"
-)
 
 // 思路: 基于字符串进行截取并对最终字符串进行遍历验证, 时间复杂度 <= O(2n)
 func lengthOfLongestSubstring(s string) int {
@@ -52,11 +50,4 @@ func lengthOfLongestSubstringPro(s string) int {
 		tmpArr[current] = i + 1
 	}
 	return result
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }

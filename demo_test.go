@@ -878,3 +878,73 @@ func TestSearchInsert(t *testing.T) {
 		t.Logf("expect: %#+v\n\n", demo.Expect)
 	}
 }
+
+func TestIsValidSudoku(t *testing.T) {
+	example := []struct {
+		Input  [][]byte
+		Expect bool
+	}{
+		{
+			Input: [][]byte{
+				[]byte{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+				[]byte{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+				[]byte{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+				[]byte{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+				[]byte{'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+				[]byte{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+				[]byte{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+				[]byte{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+				[]byte{'.', '.', '.', '.', '8', '.', '.', '7', '9'},
+			},
+			Expect: true,
+		},
+		// {
+		// 	Input: [][]byte{
+		// 		[]byte{'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+		// 		[]byte{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+		// 		[]byte{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+		// 		[]byte{'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+		// 		[]byte{'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+		// 		[]byte{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+		// 		[]byte{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+		// 		[]byte{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+		// 		[]byte{'.', '.', '.', '.', '8', '.', '.', '7', '9'},
+		// 	},
+		// 	Expect: false,
+		// },
+	}
+
+	for _, demo := range example {
+		// t.Logf("%d =>  %d \n", '1', int(demo.Input[0][0]))
+		t.Logf("input: %#+v\n", demo.Input)
+		res := isValidSudoku(demo.Input)
+		t.Logf("output: %#+v\n", res)
+		t.Logf("expect: %#+v\n\n", demo.Expect)
+	}
+}
+
+func TestTrap(t *testing.T) {
+	example := []struct {
+		Input []int
+
+		Expect int
+	}{
+		{
+			Input:  []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
+			Expect: 6,
+		},
+		// {
+		// 	Input:  []int{},
+		// 	Expect: 0,
+		// },
+	}
+
+	for _, demo := range example {
+		t.Logf("input: %#+v \n", demo.Input)
+		// res := trap(demo.Input)
+		// res := trapStack(demo.Input)
+		res := trapPointer(demo.Input)
+		t.Logf("output: %#+v\n", res)
+		t.Logf("expect: %#+v\n\n", demo.Expect)
+	}
+}
