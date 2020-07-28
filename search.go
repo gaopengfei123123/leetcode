@@ -8,7 +8,7 @@ func search(nums []int, target int) int {
 
 	left := 0
 	right := len(nums) - 1
-	mid := left + (right-left)/2
+	mid := left + (right-left)/2 // 不写 (left+right)/2 是因为 left+right有可能超过 2^32 导致溢出
 
 	for left <= right {
 		if nums[mid] == target {

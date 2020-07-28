@@ -933,10 +933,10 @@ func TestTrap(t *testing.T) {
 			Input:  []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
 			Expect: 6,
 		},
-		// {
-		// 	Input:  []int{},
-		// 	Expect: 0,
-		// },
+		{
+			Input:  []int{},
+			Expect: 0,
+		},
 	}
 
 	for _, demo := range example {
